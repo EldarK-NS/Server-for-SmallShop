@@ -21,9 +21,9 @@ app.use(morgan("tiny"));
 app.use(authJwt());
 app.use("/public/uploads", express.static(__dirname + "/public/uploads"));
 app.use(errorHandler);
-app.use((error, req, res, next) => {
-  console.log("This is the rejected field ->", error.field);
-});
+// app.use((error, req, res, next) => {
+//   console.log("This is the rejected field ->", error.field);
+// });
 
 //routers
 const productsRoutes = require("./routes/products");
@@ -39,8 +39,8 @@ app.use(`${api}/products`, productsRoutes);
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
+//   useFindAndModify: false,
+//   useCreateIndex: true,
 });
 mongoose.connection.on("connected", () => {
   console.log("Connection to mongo");
