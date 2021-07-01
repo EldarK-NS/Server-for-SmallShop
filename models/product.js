@@ -31,9 +31,9 @@ const productSchema = mongoose.Schema({
     default: 0,
   },
   category: {
-     type: mongoose.Schema.Types.ObjectId,
-     ref: "Category",
-     required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+    required: true,
   },
   countInStock: {
     type: Number,
@@ -58,14 +58,6 @@ const productSchema = mongoose.Schema({
     default: Date.now,
   },
 });
-
-// // change "_id" to "id"
-// productSchema.virtual("id").get(function () {
-//   return this._id.toHexString();
-// });
-// productSchema.set("toJSON", {
-//   virtuals: true,
-// });
 
 productSchema.method("toJSON", function () {
   const { __v, ...object } = this.toObject();

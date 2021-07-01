@@ -39,8 +39,8 @@ app.use(`${api}/products`, productsRoutes);
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-//   useFindAndModify: false,
-//   useCreateIndex: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
 });
 mongoose.connection.on("connected", () => {
   console.log("Connection to mongo");
